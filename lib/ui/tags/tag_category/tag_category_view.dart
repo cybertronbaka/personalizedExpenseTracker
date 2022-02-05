@@ -21,13 +21,16 @@ class TagCategoryView extends StatelessWidget {
           model.setCategory(category);
           model.refreshTags();
         },
+        onDispose: (model) {
+          model.resetCategory();
+        },
         viewModelBuilder: () => TagCategoryViewModel(),
         builder: (context, model, child) => Column(
           children: [
             buildSpacer(model),
             model.getLoading() ? CustomLoadingIndicator() : buildList(context, model),
             buildSpacer(model),
-            CustomButtonBar(text: category.buttonValue())
+            CustomButtonBar(text: category.buttonValue(), onTap: () => model.addTagClicked(category))
           ],
         )
     );

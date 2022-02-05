@@ -10,12 +10,15 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
 
+import '../ui/add_tag/add_tag_view.dart';
 import '../ui/drawer/drawer_view.dart';
 
 class Routes {
   static const String drawerView = '/';
+  static const String addTagView = '/tags/addTag';
   static const all = <String>{
     drawerView,
+    addTagView,
   };
 }
 
@@ -24,6 +27,7 @@ class StackedRouter extends RouterBase {
   List<RouteDef> get routes => _routes;
   final _routes = <RouteDef>[
     RouteDef(Routes.drawerView, page: DrawerView),
+    RouteDef(Routes.addTagView, page: AddTagView),
   ];
   @override
   Map<Type, StackedRouteFactory> get pagesMap => _pagesMap;
@@ -31,6 +35,12 @@ class StackedRouter extends RouterBase {
     DrawerView: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => DrawerView(),
+        settings: data,
+      );
+    },
+    AddTagView: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => AddTagView(),
         settings: data,
       );
     },

@@ -5,13 +5,15 @@ class CustomButtonBar extends StatelessWidget{
   final Color? primary;
   final Color? bgColor;
   final Size? size;
+  final void Function()? onTap;
 
   const CustomButtonBar({
     Key? key,
     required this.text,
     this.primary,
     this.bgColor,
-    this.size
+    this.size,
+    this.onTap
   }) : super(key: key);
   
   @override
@@ -26,7 +28,7 @@ class CustomButtonBar extends StatelessWidget{
           borderRadius: BorderRadius.all(Radius.circular(2.0)),
         ),
       ),
-      onPressed: () { },
+      onPressed: onTap,
       child: Text(text),
     );
   }

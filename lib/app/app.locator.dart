@@ -8,6 +8,7 @@
 
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 import '../utils/date_formatter.dart';
 
@@ -20,4 +21,5 @@ void setupLocator({String? environment, EnvironmentFilter? environmentFilter}) {
 
 // Register dependencies
   locator.registerLazySingleton(() => DateFormatter());
+  locator.registerLazySingleton(() => NavigationService());
 }

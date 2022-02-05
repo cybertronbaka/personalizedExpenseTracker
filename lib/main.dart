@@ -39,6 +39,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       navigatorKey: StackedService.navigatorKey,
       onGenerateRoute: StackedRouter().onGenerateRoute,
+      navigatorObservers: [StackedService.routeObserver] // Solves passing of Arguments and saving Current Route
     );
   }
 }
