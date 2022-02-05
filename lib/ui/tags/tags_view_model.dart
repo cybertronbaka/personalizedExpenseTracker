@@ -1,5 +1,5 @@
 import 'package:Churpu/enums/tag_categories.dart';
-import 'package:Churpu/ui/views/tags_view/tag_category_view/tag_category_view.dart';
+import 'package:Churpu/ui/tags/tag_category/tag_category_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:stacked/stacked.dart';
 

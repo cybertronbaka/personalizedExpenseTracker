@@ -1,7 +1,9 @@
-import 'package:Churpu/ui/views/drawer_view/drawer_view.dart';
-import 'package:Churpu/utils/churpu_db.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:stacked_services/stacked_services.dart';
+
+import 'app/app.locator.dart';
+import 'app/app.router.dart';
 
 void main() {
   FlutterNativeSplash.removeAfter(initialization);
@@ -10,6 +12,7 @@ void main() {
 
 void initialization(BuildContext context) async {
   WidgetsFlutterBinding.ensureInitialized();
+  setupLocator();
 }
 
 class MyApp extends StatelessWidget {
@@ -33,8 +36,9 @@ class MyApp extends StatelessWidget {
           bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
         ),
       ),
-      home: DrawerView(),
       debugShowCheckedModeBanner: false,
+      navigatorKey: StackedService.navigatorKey,
+      onGenerateRoute: StackedRouter().onGenerateRoute,
     );
   }
 }

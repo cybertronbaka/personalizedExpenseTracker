@@ -1,6 +1,6 @@
 import 'package:Churpu/db/models/tags.dart';
 import 'package:Churpu/enums/tag_categories.dart';
-import 'package:Churpu/ui/views/tags_view/tag_category_view/tag_category_view_model.dart';
+import 'package:Churpu/ui/tags/tag_category/tag_category_view_model.dart';
 import 'package:Churpu/widgets/custom_button_bar.dart';
 import 'package:Churpu/widgets/custom_loading_indicator.dart';
 import 'package:Churpu/widgets/tag_card.dart';

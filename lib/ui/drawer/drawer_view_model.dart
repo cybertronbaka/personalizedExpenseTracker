@@ -1,8 +1,8 @@
 import 'package:Churpu/enums/transaction_types.dart';
-import 'package:Churpu/ui/views/settings_view/settings_view.dart';
-import 'package:Churpu/ui/views/tags_view/tags_view.dart';
-import 'package:Churpu/ui/views/tos_view/tos_view.dart';
-import 'package:Churpu/ui/views/transaction_view/transaction_view.dart';
+import 'package:Churpu/ui/settings/settings_view.dart';
+import 'package:Churpu/ui/tags/tags_view.dart';
+import 'package:Churpu/ui/tos/tos_view.dart';
+import 'package:Churpu/ui/transactions/transaction_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:stacked/stacked.dart';

@@ -1,6 +1,5 @@
-import 'package:Churpu/ui/views/settings_view/settings_view_model.dart';
+import 'package:Churpu/ui/settings/settings_view_model.dart';
 import 'package:Churpu/widgets/custom_scaffold.dart';
-import 'package:Churpu/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 

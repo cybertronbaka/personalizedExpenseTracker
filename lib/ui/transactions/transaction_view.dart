@@ -1,13 +1,12 @@
 import 'package:Churpu/db/models/transactions.dart';
 import 'package:Churpu/enums/transaction_types.dart';
-import 'package:Churpu/ui/views/transaction_view/transaction_view_model.dart';
+import 'package:Churpu/ui/transactions/transaction_view_model.dart';
 import 'package:Churpu/widgets/custom_button_bar.dart';
 import 'package:Churpu/widgets/custom_loading_indicator.dart';
 import 'package:Churpu/widgets/custom_scaffold.dart';
 import 'package:Churpu/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class TransactionView extends StatelessWidget {
   final Widget drawerButton;

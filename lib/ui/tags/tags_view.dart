@@ -1,4 +1,4 @@
-import 'package:Churpu/ui/views/tags_view/tags_view_model.dart';
+import 'package:Churpu/ui/tags/tags_view_model.dart';
 import 'package:Churpu/widgets/custom_scaffold.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
