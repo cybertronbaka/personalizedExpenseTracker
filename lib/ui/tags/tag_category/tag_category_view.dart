@@ -5,7 +5,6 @@ import 'package:Churpu/widgets/custom_button_bar.dart';
 import 'package:Churpu/widgets/custom_loading_indicator.dart';
 import 'package:Churpu/widgets/tag_card.dart';
 import 'package:flutter/material.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:stacked/stacked.dart';
 
 
@@ -18,21 +17,20 @@ class TagCategoryView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<TagCategoryViewModel>.reactive(
         onModelReady: (model) {
-          model.setCategory(category);
-          model.refreshTags();
-        },
-        onDispose: (model) {
-          model.resetCategory();
         },
         viewModelBuilder: () => TagCategoryViewModel(),
-        builder: (context, model, child) => Column(
-          children: [
-            buildSpacer(model),
-            model.getLoading() ? CustomLoadingIndicator() : buildList(context, model),
-            buildSpacer(model),
-            CustomButtonBar(text: category.buttonValue(), onTap: () => model.addTagClicked(category))
-          ],
-        )
+        builder: (context, model, child) {
+          model.setCategory(category);
+          model.refreshTags();
+          return  Column(
+              children: [
+              buildSpacer(model),
+              model.getLoading() ? CustomLoadingIndicator() : buildList(context, model),
+              buildSpacer(model),
+              CustomButtonBar(text: category.buttonValue(), onTap: () => model.addTagClicked(category))
+            ],
+          );
+        }
     );
   }
 
@@ -46,7 +44,12 @@ class TagCategoryView extends StatelessWidget {
         child: GridView.count(
           crossAxisCount: 2,
           children: model.getTags().map((tag) {
-            return TagCard(id: tag.id as int, tagName: tag.name, image: 'assets/food.jpg');
+            return TagCard(
+              id: tag.id as int,
+              tagName: tag.name,
+              defaultImage: tag.defaultImage,
+              image: tag.imagePath
+            );
           }).toList(),
         )
     ) : Text('No Data');

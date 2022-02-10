@@ -6,13 +6,13 @@ import 'app/app.locator.dart';
 import 'app/app.router.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  setupLocator();
   FlutterNativeSplash.removeAfter(initialization);
   runApp(MyApp());
 }
 
 void initialization(BuildContext context) async {
-  WidgetsFlutterBinding.ensureInitialized();
-  setupLocator();
 }
 
 class MyApp extends StatelessWidget {

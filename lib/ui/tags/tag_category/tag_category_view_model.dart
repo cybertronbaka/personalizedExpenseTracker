@@ -26,15 +26,6 @@ class TagCategoryViewModel extends BaseViewModel{
 
   void refreshTags() async {
     tags = await Tag.readTags(_category) ?? [];
-    if(tags.isEmpty) {
-      Tag tag = Tag(name: 'Food', tagType: _category);
-      Tag.create(tag);
-      Tag tag1 = Tag(name: 'Car', tagType: _category);
-      Tag.create(tag1);
-      Tag tag2 = Tag(name: 'Rent', tagType: _category);
-      Tag.create(tag2);
-    }
-    tags = await Tag.readTags(_category) ?? [];
     loading = false;
     dataExists = tags.isNotEmpty;
     notifyListeners();
@@ -49,7 +40,6 @@ class TagCategoryViewModel extends BaseViewModel{
   }
 
   void addTagClicked(TagCategories category){
-    print("Sent Category: ${category.toShortString()}");
     _navigator.navigateTo(Routes.addTagView, arguments: { 'category': category.toShortString() });
   }
 }

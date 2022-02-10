@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:Churpu/widgets/custom_bottom_modal.dart';
 import 'package:flutter/material.dart';
 
@@ -8,8 +10,9 @@ class TagCard extends StatelessWidget {
   final int id;
   final String tagName;
   final String image;
+  final bool defaultImage;
 
-  const TagCard({required this.id, required this.tagName, required this.image});
+  const TagCard({required this.id, required this.tagName, required this.image, required this.defaultImage});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +41,11 @@ class TagCard extends StatelessWidget {
                     width: 100,
                     height: 100,
                     child: Wrap(
-                      children: [Image(image: AssetImage(image))],
+                      children: [
+                        defaultImage
+                            ? Image(image: AssetImage(image))
+                            : Image.file(File(image))
+                      ],
                     )
                 )
               ],

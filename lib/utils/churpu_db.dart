@@ -34,7 +34,9 @@ class ChurpuDb {
       CREATE TABLE $tableTags (
         ${TagFields.id} $idType,
         ${TagFields.name} $textType,
-        ${TagFields.tagType} $textType
+        ${TagFields.tagType} $textType,
+        ${TagFields.defaultImage} $intType,
+        ${TagFields.imagePath} $textType
       )
     ''');
 

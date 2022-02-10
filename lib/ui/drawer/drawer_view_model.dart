@@ -1,15 +1,13 @@
-import 'package:Churpu/enums/transaction_types.dart';
+import 'package:Churpu/ui/incomes/incomes_view.dart';
 import 'package:Churpu/ui/settings/settings_view.dart';
 import 'package:Churpu/ui/tags/tags_view.dart';
 import 'package:Churpu/ui/tos/tos_view.dart';
-import 'package:Churpu/ui/transactions/transaction_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:stacked/stacked.dart';
 
 class DrawerViewModel extends BaseViewModel{
   final advancedDrawerController = AdvancedDrawerController();
-
   String currentTitle = 'Expenses';
   late Widget currentView;
   late IconButton drawerButton;
@@ -38,10 +36,10 @@ class DrawerViewModel extends BaseViewModel{
   void setCurrentView(String section){
     switch(section){
       case 'Expenses':
-        currentView = TransactionView(drawerButton: drawerButton, transactionType: TransactionType.Expense);
+        currentView = ExpensesView(drawerButton: drawerButton);
         break;
       case 'Incomes':
-        currentView = TransactionView(drawerButton: drawerButton, transactionType: TransactionType.Income);
+        currentView = IncomesView(drawerButton: drawerButton);
         break;
       case 'Tags':
         currentView = TagsView(drawerButton: drawerButton);

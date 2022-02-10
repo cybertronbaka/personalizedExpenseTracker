@@ -6,6 +6,7 @@ class CustomButtonBar extends StatelessWidget{
   final Color? bgColor;
   final Size? size;
   final void Function()? onTap;
+  final bool? border;
 
   const CustomButtonBar({
     Key? key,
@@ -13,7 +14,8 @@ class CustomButtonBar extends StatelessWidget{
     this.primary,
     this.bgColor,
     this.size,
-    this.onTap
+    this.onTap,
+    this.border
   }) : super(key: key);
   
   @override
@@ -24,12 +26,17 @@ class CustomButtonBar extends StatelessWidget{
         backgroundColor: bgColor != null ? bgColor : Theme.of(context).primaryColor,
         minimumSize: size != null ? size : Size(MediaQuery.of(context).size.width, 50),
         padding: EdgeInsets.symmetric(horizontal: 16.0),
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(2.0)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(0)),
+          side: BorderSide(style: border != null ? BorderStyle.solid : BorderStyle.none, color: Colors.black38)
         ),
       ),
       onPressed: onTap,
-      child: Text(text),
+      child: Text(text,
+        style: TextStyle(
+          color: primary != null ? primary : Colors.white
+        )
+      ),
     );
   }
 }

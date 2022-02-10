@@ -1,8 +1,11 @@
+import 'package:Churpu/app/app.locator.dart';
+import 'package:Churpu/app/app.router.dart';
 import 'package:Churpu/db/models/tags.dart';
 import 'package:Churpu/db/models/transactions.dart';
 import 'package:Churpu/enums/tag_categories.dart';
 import 'package:Churpu/enums/transaction_types.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 class TransactionViewModel extends BaseViewModel {
   TransactionType _transactionType = TransactionType.Expense;
@@ -11,6 +14,7 @@ class TransactionViewModel extends BaseViewModel {
   final DateTime now = DateTime.now();
   late List<Transaction> cards;
   double headerAmount = 0;
+  final _navigator = locator<NavigationService>();
 
   Transaction getCard(int i) => cards[i];
   double getHeaderAmount() => headerAmount;
@@ -41,5 +45,9 @@ class TransactionViewModel extends BaseViewModel {
     dataExists = cards.isNotEmpty;
     headerAmount = cards.map((e) => e.amount).fold(0.0, (a, b) => a + b);
     notifyListeners();
+  }
+
+  void addButtonClicked(){
+    _navigator.navigateTo(Routes.addTransactionView, arguments: {'category': _transactionType});
   }
 }

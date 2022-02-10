@@ -11,6 +11,7 @@ import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 import '../utils/date_formatter.dart';
+import '../utils/gallery_service.dart';
 
 final locator = StackedLocator.instance;
 
@@ -22,4 +23,5 @@ void setupLocator({String? environment, EnvironmentFilter? environmentFilter}) {
 // Register dependencies
   locator.registerLazySingleton(() => DateFormatter());
   locator.registerLazySingleton(() => NavigationService());
+  locator.registerLazySingleton(() => GalleryService());
 }

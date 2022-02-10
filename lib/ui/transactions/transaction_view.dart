@@ -20,7 +20,6 @@ class TransactionView extends StatelessWidget {
           model.setTransactionType(transactionType);
           model.refreshCards();
         },
-
         viewModelBuilder: () => TransactionViewModel(),
         builder: (context, model, child) => CustomScaffold(
           title: transactionType.viewTitle(),
@@ -33,7 +32,12 @@ class TransactionView extends StatelessWidget {
                   buildSpacer(model),
                   model.loading ? CustomLoadingIndicator() : buildList(context, model),
                   buildSpacer(model),
-                  CustomButtonBar(text: transactionType.buttonValue())
+                  CustomButtonBar(
+                    text: transactionType.buttonValue(),
+                    onTap: (){
+                      model.addButtonClicked();
+                    },
+                  )
                 ],
               )
           ),
@@ -67,7 +71,6 @@ class TransactionView extends StatelessWidget {
             itemCount:  model.getCardsCount(),
             itemBuilder: (context, i) {
               Transaction card = model.getCard(i);
-              print("Card id(${card.id}) TagId(${card.tagId}. Actual Tag${card.tagName}");
               return CustomCard(
                 id: card.id as int,
                 tagId: card.tagId,
